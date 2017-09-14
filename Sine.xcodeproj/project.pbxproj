@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		873A7F5C1F6B12C900B22823 /* FrequencyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A7F5B1F6B12C900B22823 /* FrequencyTable.swift */; };
+		879B5C991F690284000AFEEC /* AVTonePlayerUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B5C981F690284000AFEEC /* AVTonePlayerUnit.swift */; };
 		87B500381F676C310055FC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B500371F676C310055FC47 /* AppDelegate.swift */; };
 		87B5003A1F676C310055FC47 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 87B500391F676C310055FC47 /* GameScene.sks */; };
 		87B5003C1F676C310055FC47 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 87B5003B1F676C310055FC47 /* Actions.sks */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		873A7F5B1F6B12C900B22823 /* FrequencyTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrequencyTable.swift; sourceTree = "<group>"; };
+		879B5C981F690284000AFEEC /* AVTonePlayerUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVTonePlayerUnit.swift; sourceTree = "<group>"; };
 		87B500341F676C310055FC47 /* Sine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B500371F676C310055FC47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87B500391F676C310055FC47 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				87B500441F676C310055FC47 /* Assets.xcassets */,
 				87B500461F676C310055FC47 /* LaunchScreen.storyboard */,
 				87B500491F676C310055FC47 /* Info.plist */,
+				879B5C981F690284000AFEEC /* AVTonePlayerUnit.swift */,
+				873A7F5B1F6B12C900B22823 /* FrequencyTable.swift */,
 			);
 			path = Sine;
 			sourceTree = "<group>";
@@ -202,6 +208,7 @@
 				TargetAttributes = {
 					87B500331F676C310055FC47 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 6DL8LE49DK;
 						ProvisioningStyle = Automatic;
 					};
 					87B5004D1F676C310055FC47 = {
@@ -271,8 +278,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				87B5003E1F676C310055FC47 /* GameScene.swift in Sources */,
+				873A7F5C1F6B12C900B22823 /* FrequencyTable.swift in Sources */,
 				87B500401F676C310055FC47 /* GameViewController.swift in Sources */,
 				87B500381F676C310055FC47 /* AppDelegate.swift in Sources */,
+				879B5C991F690284000AFEEC /* AVTonePlayerUnit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +435,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6DL8LE49DK;
 				INFOPLIST_FILE = Sine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.suchipi.Sine;
@@ -438,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6DL8LE49DK;
 				INFOPLIST_FILE = Sine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.suchipi.Sine;
@@ -519,6 +530,7 @@
 				87B500641F676C310055FC47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87B500651F676C310055FC47 /* Build configuration list for PBXNativeTarget "SineTests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +539,7 @@
 				87B500671F676C310055FC47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87B500681F676C310055FC47 /* Build configuration list for PBXNativeTarget "SineUITests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +548,7 @@
 				87B5006A1F676C310055FC47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
