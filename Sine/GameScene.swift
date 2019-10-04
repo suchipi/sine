@@ -1,11 +1,3 @@
-//
-//  GameScene.swift
-//  Sine
-//
-//  Created by Stephen Scott on 9/11/17.
-//  Copyright © 2017 Stephen Scott. All rights reserved.
-//
-
 import SpriteKit
 import GameplayKit
 import AVFoundation
@@ -59,10 +51,15 @@ class GameScene: SKScene {
     
     // MARK: - Helpers
     private func updateRate(fromPoint point: CGPoint) {
-        // Bottom of the screen should be 0, middle should be 1, top should be 2
-        let rate = (((0.5 * self.size.height) + point.y) / self.size.height) * 2 // 0.0 to 2.0, where 1.0 is normal speed
-        let frequency = Double(440 * rate)
-        player.frequency = frequency
+        // Bottom of the screen should be 0, top should be 1
+        let screenPos = ((0.5 * self.size.height) + point.y) / self.size.height
+        
+        let minNote = FrequencyTable.getFrequency("A3");
+        let maxNote = FrequencyTable.getFrequency("C8");
+        
+        let frequency = Double(minNote + (maxNote - minNote) * Double(pow(screenPos, 2)));
+        
+        player.frequency = frequency;
         frequencyLabel?.text = NSString(format: "%.0fHz", frequency) as String
         
         if let noteName = FrequencyTable.getNoteName(frequency: frequency) {

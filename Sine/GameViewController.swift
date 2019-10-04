@@ -1,11 +1,3 @@
-//
-//  GameViewController.swift
-//  Sine
-//
-//  Created by Stephen Scott on 9/11/17.
-//  Copyright © 2017 Stephen Scott. All rights reserved.
-//
-
 import UIKit
 import SpriteKit
 import GameplayKit

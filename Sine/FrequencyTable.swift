@@ -1,11 +1,3 @@
-//
-//  FrequencyTable.swift
-//  Sine
-//
-//  Created by Stephen Scott on 9/14/17.
-//  Copyright © 2017 Stephen Scott. All rights reserved.
-//
-
 import Foundation
 
 private let frequenciesByNoteName = [
@@ -178,6 +170,10 @@ private func near(_ lowerName: String, _ midName: String, _ upperName: String) -
 }
     
 class FrequencyTable {
+    static func getFrequency(_ noteName: String) -> Double {
+        return frequenciesByNoteName[noteName] ?? 0.0;
+    };
+    
     static func getNoteName(frequency: Double) -> String? {
         var noteName: String?
         switch frequency {

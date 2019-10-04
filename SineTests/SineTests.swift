@@ -1,11 +1,3 @@
-//
-//  SineTests.swift
-//  SineTests
-//
-//  Created by Stephen Scott on 9/11/17.
-//  Copyright © 2017 Stephen Scott. All rights reserved.
-//
-
 import XCTest
 @testable import Sine
 

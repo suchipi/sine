@@ -56,8 +56,8 @@ class AVTonePlayerUnit: AVAudioPlayerNode {
     
     func prepareBuffer() -> AVAudioPCMBuffer {
         let buffer = AVAudioPCMBuffer(pcmFormat: audioFormat, frameCapacity: bufferCapacity)
-        fillBuffer(buffer)
-        return buffer
+        fillBuffer(buffer!)
+        return buffer!
     }
     
     func fillBuffer(_ buffer: AVAudioPCMBuffer) {
