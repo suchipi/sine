@@ -5,6 +5,9 @@ import AVFoundation
 class GameScene: SKScene {
     private var frequencyLabel: SKLabelNode?
     private var noteNameLabel: SKLabelNode?
+    private var verticalLine: SKSpriteNode?
+    private var horizontalLine: SKSpriteNode?
+    
     private let engine = AVAudioEngine.init()
     private let player = AVTonePlayerUnit.init()
     
@@ -15,6 +18,14 @@ class GameScene: SKScene {
         
         frequencyLabel?.text = ""
         noteNameLabel?.text = ""
+        
+        self.horizontalLine = SKSpriteNode.init(color: SKColor.white, size: CGSize.init(width: self.size.width, height: 2.0))
+        self.horizontalLine!.alpha = 0.0
+        self.addChild(self.horizontalLine!)
+        
+        self.verticalLine = SKSpriteNode.init(color: SKColor.white, size: CGSize.init(width: 2.0, height: self.size.height))
+        self.verticalLine!.alpha = 0.0
+        self.addChild(self.verticalLine!)
         
         player.amplitude = 1.0
         player.frequency = 440
@@ -54,12 +65,12 @@ class GameScene: SKScene {
         // Bottom of the screen should be 0, top should be 1
         let screenPos = ((0.5 * self.size.height) + point.y) / self.size.height
         
-        let minNote = FrequencyTable.getFrequency("A3");
-        let maxNote = FrequencyTable.getFrequency("C8");
+        let minNote = FrequencyTable.getFrequency("A0")
+        let maxNote = FrequencyTable.getFrequency("C8")
         
-        let frequency = Double(minNote + (maxNote - minNote) * Double(pow(screenPos, 2)));
+        let frequency = Double(minNote + (maxNote - minNote) * Double(pow(screenPos, 2)))
         
-        player.frequency = frequency;
+        player.frequency = frequency
         frequencyLabel?.text = NSString(format: "%.0fHz", frequency) as String
         
         if let noteName = FrequencyTable.getNoteName(frequency: frequency) {
@@ -73,7 +84,16 @@ class GameScene: SKScene {
         player.amplitude = Double(volume)
     }
     
+    private func updateLines(fromPoint point: CGPoint) {
+        self.horizontalLine?.position = CGPoint.init(x: 0.0, y: point.y)
+        self.verticalLine?.position = CGPoint.init(x: point.x, y: 0.0)
+    }
+    
     func touchDown(atPoint point: CGPoint) {
+        self.horizontalLine?.alpha = 1.0
+        self.verticalLine?.alpha = 1.0
+        
+        updateLines(fromPoint: point)
         updateRate(fromPoint: point)
         updateVolume(fromPoint: point)
         
@@ -82,13 +102,18 @@ class GameScene: SKScene {
     }
     
     private func touchMoved(toPoint point: CGPoint) {
+        updateLines(fromPoint: point)
         updateRate(fromPoint: point)
         updateVolume(fromPoint: point)
     }
     
     private func touchUp(atPoint pos: CGPoint) {
+        self.horizontalLine?.alpha = 0.0
+        self.verticalLine?.alpha = 0.0
+        
         player.pause()
         player.reset()
+        
         frequencyLabel?.text = ""
         noteNameLabel?.text = ""
     }
